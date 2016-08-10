@@ -28,9 +28,9 @@ class Billplz
         return new Collection($this->configuration);
     }
 
-    public function bill($bill = false)
+    public function bill()
     {
-        return new Bill($this->configuration, $bill);
+        return new Bill($this->configuration);
     }
 
 }
