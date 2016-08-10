@@ -58,7 +58,9 @@ $billplz = new Billplz([
 ]);
 
 $billplz->collection()->createOpen([
-	'title' => 'My Collection'
+	'title' => 'My Collection',
+	'description' => 'My Open Collection Description',
+	'amount' => 100 // RM1.00
 ]);
 
 ```
