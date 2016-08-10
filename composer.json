@@ -1,0 +1,18 @@
+{
+    "name": "h2akim/billplz",
+    "description": "BillPlz Payment Software API",
+    "keyword": ["billplz", "payment"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Hakim Razalan",
+            "email": "hakim.razalan@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4":
+        {
+            "H2akim\\Billplz\\": "src/"
+        }
+    }
+}
