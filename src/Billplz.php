@@ -36,7 +36,7 @@ class Billplz
      * Bill method
      */
     public function bill() {
-        return new Bill($this->configuration)
+        return new Bill($this->configuration);
     }
 
 }
