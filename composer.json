@@ -14,5 +14,6 @@
         {
             "H2akim\\Billplz\\": "src/"
         }
-    }
+    },
+    "minimum-stability": "dev-master"
 }
