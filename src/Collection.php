@@ -5,15 +5,28 @@ namespace H2akim\Billplz;
 class Collection
 {
 
+    /**
+     * Private Variables
+     */
     private $request_type = 'collections';
     private $configuration;
     private $data = [];
 
+    /**
+     * Constructor
+     *
+      * @param array $configuration
+      */
     public function __construct($configuration)
     {
         $this->configuration = $configuration;
     }
 
+    /**
+     * Create method - for collection creation
+     *
+     * @param array $data
+     */
     public function create($data = array())
     {
         $this->channel = curl_init($this->configuration['base_uri'].$this->request_type);
@@ -22,6 +35,11 @@ class Collection
         return ($data['object']) ? json_decode($this->sendRequest()) : $this->sendRequest();
     }
 
+    /**
+     * Create method (open) - for open collection creation
+     *
+     * @param array $data
+     */
     public function createOpen($data = array())
     {
         $this->channel = curl_init($this->configuration['base_uri'].'open_'.$this->request_type);
@@ -30,6 +48,9 @@ class Collection
         return ($data['object']) ? json_decode($this->sendRequest()) : $this->sendRequest();
     }
 
+    /**
+     * Send request method - send request to api server (cURL)
+     */
     private function sendRequest() {
 		curl_setopt($this->channel, CURLOPT_USERPWD, $this->configuration['api_key'] . ":");
 		curl_setopt($this->channel, CURLOPT_TIMEOUT, 30);

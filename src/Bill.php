@@ -5,17 +5,28 @@ namespace H2akim\Billplz;
 class Bill
 {
 
+    /**
+     * Private Variables
+     */
     private $request_type = 'bills';
-
     private $configuration;
-    public $params;
     private $channel;
     private $data = [];
 
+    /**
+     * Constructor
+     *
+      * @param array $configuration
+      */
     public function __construct($configuration) {
         $this->configuration = $configuration;
     }
 
+    /**
+     * Create method - for bill creation
+     *
+     * @param array $data
+     */
     public function create($data = array())
     {
         $this->channel = curl_init($this->configuration['base_uri'].$this->request_type);
@@ -24,6 +35,11 @@ class Bill
         return ($data['object']) ? json_decode($this->sendRequest()) : $this->sendRequest();
     }
 
+    /**
+     * Get method - for bill retrieval
+     *
+     * @param array $data
+     */
     public function get($data = array())
     {
         $this->channel = curl_init($this->configuration['base_uri'].$this->request_type.'/'.$data['bill_id']);
@@ -37,6 +53,11 @@ class Bill
         return ($data['object']) ? json_decode($result) : $result;
     }
 
+    /**
+     * Delete method - for bill deletion
+     *
+     * @param array $data
+     */
     public function delete($data = array())
     {
         $this->channel = curl_init($this->configuration['base_uri'].$this->request_type.'/'.$data['bill_id']);
@@ -45,6 +66,9 @@ class Bill
         return ($data['object']) ? json_decode($this->sendRequest()) : $this->sendRequest();
     }
 
+    /**
+     * Send request method - send request to api server (cURL)
+     */
     private function sendRequest() {
 		curl_setopt($this->channel, CURLOPT_USERPWD, $this->configuration['api_key'] . ":");
 		curl_setopt($this->channel, CURLOPT_TIMEOUT, 30);
