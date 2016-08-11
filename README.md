@@ -6,7 +6,7 @@ Simple library for BillPlz Payment Software API
 
 ### Composer
 ```bash
-composer require h2akim/billplz
+composer require h2akim/billplz:*
 ```
 
 ## How to Use
