@@ -15,5 +15,5 @@
             "H2akim\\Billplz\\": "src/"
         }
     },
-    "minimum-stability": "dev"
+    "minimum-stability": "stable"
 }
