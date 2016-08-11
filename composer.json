@@ -1,6 +1,7 @@
 {
     "name": "h2akim/billplz",
     "minimum-stability": "stable",
+    "version": "1.0.0",
     "description": "BillPlz Payment Software API",
     "keyword": ["billplz", "payment"],
     "license": "MIT",
