@@ -31,8 +31,13 @@ class Bill
     {
         $this->channel = curl_init($this->configuration['base_uri'].$this->request_type);
         if (!array_key_exists('object', $data)) $data['object'] = false;
-        $this->data = $data;
-        return ($data['object']) ? json_decode($this->sendRequest()) : $this->sendRequest();
+        $result = $this->sendRequest();
+        if (array_key_exists('auto_submit', $data)) {
+            $result = json_decode($result);
+            $result->url = $result->url.'?auto_submit='.$data['auto_submit'];
+            $result = json_encode($result);
+        }
+        return ($data['object']) ? json_decode($result) : $result;
     }
 
     /**
@@ -44,6 +49,7 @@ class Bill
     {
         $this->channel = curl_init($this->configuration['base_uri'].$this->request_type.'/'.$data['bill_id']);
         if (!array_key_exists('object', $data)) $data['object'] = false;
+        $this->data = $data;
         $result = $this->sendRequest();
         if (array_key_exists('auto_submit', $data)) {
             $result = json_decode($result);

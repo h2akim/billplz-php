@@ -81,6 +81,7 @@ Parameters available for bill creation:
 * reference_1 _(optional)_
 * reference_2_label _(optional)_
 * reference_2 _(optional)_
+* auto_submit _(optional)_ - Skip BillPlz page. [ Value: ***fpx*** or ***paypal*** ]
 * object _(optional)_ - return as object (if true)
 
 ```php
